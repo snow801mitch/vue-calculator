@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       previous: null,
-      current: '800',
+      current: '0',
       operator: null,
       operatorClicked: false,
     }
@@ -77,7 +77,10 @@ export default {
       }
     },
     sum() {
-
+      this.current = `${this.operator(
+        parseFloat(this.current),
+        parseFloat(this.previous)
+      )}`;
     }
   }
 }
@@ -94,6 +97,7 @@ export default {
 }
 
 .display {
+  flex-wrap: auto;
   grid-column: 1 /5;
   background-color: darkgray;
   border: 1px solid #999;
